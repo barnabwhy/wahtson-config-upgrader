@@ -11,6 +11,7 @@
     "type": "git",
     "url": "https://github.com/barnabwhy/wahtson-config-updater.git"
   },
+  "homepage": "https://github.com/barnabwhy/wahtson-config-updater",
   "author": "barnabwhy",
   "license": "GPL-3.0",
   "dependencies": {
