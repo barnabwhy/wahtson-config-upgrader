@@ -1,6 +1,6 @@
 {
   "name": "wahtson-config-upgrader",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A tool to upgrade wahtson config.toml files to the JSON & JSON5 standards",
   "main": "index.js",
   "scripts": {

@@ -3,7 +3,7 @@ const JSON5 = require('json5')
 const fs = require("mz/fs")
 
 const convert = async (fileIn, fileOut) => {
-    return new Promise((resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
         const source = await fs.readFile(fileIn).catch(err => {
             reject(`Unable to read file ${fileIn}`)
         })
