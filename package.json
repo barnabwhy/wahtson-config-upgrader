@@ -7,6 +7,10 @@
     "json": "node convert.js config.toml config.json",
     "json5": "node convert.js config.toml config.json5"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/barnabwhy/wahtson-config-updater.git"
+  },
   "author": "barnabwhy",
   "license": "GPL-3.0",
   "dependencies": {
