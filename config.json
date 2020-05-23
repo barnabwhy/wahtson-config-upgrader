@@ -1,0 +1,162 @@
+{
+  "bot_token": "",
+  "server_id": "",
+  "command_prefix": "!",
+  "economy": {
+    "starting_coins": 0
+  },
+  "on_unknown_command": [
+    {
+      "type": "REPLY",
+      "text": "Unknown command."
+    }
+  ],
+  "on_new_member": [
+    {
+      "type": "REPLY_DM",
+      "text": "Welcome to the server!\n"
+    }
+  ],
+  "pin": {
+    "emoji": ":pushpin:",
+    "count": 4,
+    "disallow_from": [
+      "#pins"
+    ],
+    "actions": [
+      {
+        "type": "COPY_SOURCE_MESSAGE",
+        "to": "#pins"
+      },
+      {
+        "type": "REPLY_DM",
+        "text": "Your message was pinned!"
+      }
+    ]
+  },
+  "reactions": [
+    {
+      "message": "",
+      "emoji": ":package:",
+      "add_actions": [
+        {
+          "type": "GRANT_ROLE",
+          "role": "Awesome Person"
+        }
+      ],
+      "remove_actions": [
+        {
+          "type": "REPLY_DM",
+          "text": "You are no longer awesome."
+        },
+        {
+          "type": "REVOKE_ROLE",
+          "role": "Awesome Person"
+        }
+      ]
+    }
+  ],
+  "commands": [
+    {
+      "usage": "ping",
+      "actions": [
+        {
+          "type": "REPLY",
+          "text": "Pong!"
+        }
+      ]
+    },
+    {
+      "usage": "superping",
+      "actions": [
+        {
+          "type": "REPLY",
+          "text": "**SUPERPONG!!!**",
+          "when": [
+            {
+              "type": "HAS_ROLE",
+              "role": "awesome"
+            },
+            {
+              "type": "HAS_ROLE",
+              "role": "broke rules",
+              "negate": true
+            }
+          ]
+        },
+        {
+          "type": "REPLY",
+          "text": "Sorry, you must be awesome to peform a superping.",
+          "when": [
+            {
+              "type": "PREVIOUS_ACTION_SKIPPED"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "usage": "buy_taco",
+      "actions": [
+        {
+          "type": "PURCHASE_ITEM",
+          "item": "Taco",
+          "repeatable": true,
+          "price": 2,
+          "text_success": "Successfully purchased $_item, new balance: $balance",
+          "text_poor": "Not enough coins to purchase $_item, you need $outstanding more",
+          "text_duplicate": "You already have that item"
+        }
+      ]
+    },
+    {
+      "usage": "daily",
+      "actions": [
+        {
+          "type": "GIVE_COINS",
+          "amount": 50,
+          "text": "You have claimed your $_amount daily coins",
+          "when": {
+            "type": "TIME_SINCE",
+            "time": {
+              "days": 1
+            },
+            "count_use": false
+          }
+        },
+        {
+          "type": "REPLY",
+          "text": "You have to wait until tomorrow to use `!daily` again",
+          "when": {
+            "type": "TIME_SINCE",
+            "time": {
+              "days": 1
+            },
+            "negate": true
+          }
+        }
+      ]
+    },
+    {
+      "usage": "help",
+      "hidden": true,
+      "actions": [
+        {
+          "type": "SEND_HELP",
+          "page": "$arg0"
+        }
+      ]
+    }
+  ],
+  "purchases": [
+    {
+      "item": "Taco",
+      "actions": [
+        {
+          "type": "REPLY",
+          "text": "Hope you enjoy your taco!"
+        }
+      ]
+    }
+  ]
+}
