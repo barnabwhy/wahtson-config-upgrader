@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "json": "node convert.js config.toml config.json",
-    "json5": "node convert.js config.toml config.json5"
+    "json5": "node convert.js config.toml config.json5",
+    "deploy": "npm publish"
   },
   "repository": {
     "type": "git",
